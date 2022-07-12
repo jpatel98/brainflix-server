@@ -15,6 +15,23 @@ router.get('/', (req, res) => {
     const vidArrResponse = vidArrParsed.videos;
     // sending the json data back as response
     res.json(vidArrResponse);
-  })
+})
+
+//GET request for '/videos/videoId'.
+// videoId will be swapped out with the id of a video as found in the list of videoDetails
+// Returns a detailed object of a single video
+// Details include the list of comments for that video
+router.get('/:videoId', (req, res) => {
+    const requestedVideoId = req.params.videoId;
+    const vidDetailsArr = vidArrParsed.videoDetails;
+    const requestedVideo = vidDetailsArr.find(video => video.id === requestedVideoId)
+  
+    if (!requestedVideo) {
+      res.status(404).send('Video not found');
+      return;
+    }
+  
+    res.status(200).json(requestedVideo);
+})
 
   module.exports = router;

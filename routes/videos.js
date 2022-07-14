@@ -5,6 +5,19 @@ const { v4: uuidv4 } = require('uuid');
 // Using uniqueNamesGenerator npm library for channel names
 const { uniqueNamesGenerator, Config, names, adjectives } = require('unique-names-generator');
 
+
+let imagesArr = [
+  'https://i.imgur.com/4ct4TEr.png',
+  'https://i.imgur.com/vPgMPzw.jpeg',
+  'https://i.imgur.com/CQFK71Q.jpeg',
+  'https://i.imgur.com/B19yFTW.jpeg',
+  'https://i.imgur.com/aR6wyvH.jpeg',
+  'https://i.imgur.com/c0nxtPe.jpeg',
+  'https://i.imgur.com/9cvS5q6.jpeg',
+  'https://i.imgur.com/A8eQsll.jpeg',
+  'https://i.imgur.com/luziRl1.jpeg'
+];
+
 const readVideos = () => {
   // videos.json file stored in a variable
   // parsing the buffer data after fs.readFileSync
@@ -53,6 +66,8 @@ const randomName = uniqueNamesGenerator({
   style: 'capital', 
 });
 
+let randomImg = imagesArr[Math.floor(Math.random() * imagesArr.length)];
+
 // POST request for /videos that will add a new video to the video list. 
 // A unique id must be generated for each video added.
 router.post('/videos', (req, res) => {
@@ -67,7 +82,7 @@ router.post('/videos', (req, res) => {
   const newVideo = {
     title,
     channel: randomName,
-    image: "https://i.imgur.com/x2GmdlK.jpeg",
+    image: randomImg,
     description,
     views: "0",
     likes: "0",

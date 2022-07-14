@@ -66,6 +66,8 @@ const randomName = uniqueNamesGenerator({
   style: 'capital', 
 });
 
+// selecting a random image from imagesArr.
+// this could be an api call to a random image generator
 let randomImg = imagesArr[Math.floor(Math.random() * imagesArr.length)];
 
 // POST request for /videos that will add a new video to the video list. 

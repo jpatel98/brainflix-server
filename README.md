@@ -76,7 +76,7 @@ npm start
 - Creates a new video with user input of title and description.
 - Other fields will be automatically generated with placeholder values
 #### Post body example
-```
+```json
 {
 	"title": "I love my dog",
 	"description": "Checkout this fluffer"
@@ -84,7 +84,7 @@ npm start
 ```
 #### Response body example
 - Additional fields will be autofilled with random placeholder values
-```
+```json
 {
         "title": "I love my dog",
         "channel": "Random Trisha",

@@ -45,7 +45,7 @@ npm start
         "likes": "110,985",
         "duration": "4:01",
         "video": "https://project-2-api.herokuapp.com/stream",
-        "timestamp": 1545162149000,
+        "timestmp": 1545162149000,
         "comments": [
             {
                 "name": "Micheal Lyons",
@@ -75,19 +75,27 @@ npm start
 ### POST `/videos`
 - Creates a new video with user input of title and description.
 - Other fields will be automatically generated with placeholder values
-- Post body example
+#### Post body example
 ```
 {
-	"name": "Nigel",
-	"comment": "This is a test"
+	"title": "I love my dog",
+	"description": "Checkout this fluffer"
 }
 ```
-- response body example
+#### Response body example
+- Additional fields will be autofilled with random placeholder values
 ```
 {
-  "name": "Nigel",
-  "comment": "This is a test",
-  "id": 4,
-  "timestamp": 1531857374673
-}
+        "title": "I love my dog",
+        "channel": "Random Trisha",
+        "image": "https://i.imgur.com/CQFK71Q.jpeg",
+        "description": "Checkout this fluffer",
+        "views": "0",
+        "likes": "0",
+        "duration": "25:44",
+        "video": "https://project-2-api.herokuapp.com/stream",
+        "timestamp": 1657814034175,
+        "comments": [],
+        "id": "b9bd9aa4-fcbf-4348-b79d-6b335d345ff3"
+    }
 ```

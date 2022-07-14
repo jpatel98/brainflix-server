@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-
-
+// Using uniqueNamesGenerator npm library for channel names
+const { uniqueNamesGenerator, Config, names, adjectives } = require('unique-names-generator');
 
 const readVideos = () => {
   // videos.json file stored in a variable
@@ -47,6 +47,12 @@ router.get('/videos/:videoId', (req, res) => {
     res.status(200).json(requestedVideo);
 })
 
+const randomName = uniqueNamesGenerator({ 
+  dictionaries: [adjectives, names],
+  separator: ' ',
+  style: 'capital', 
+});
+
 // POST request for /videos that will add a new video to the video list. 
 // A unique id must be generated for each video added.
 router.post('/videos', (req, res) => {
@@ -57,10 +63,19 @@ router.post('/videos', (req, res) => {
   
   const vidArr = readVideos();
 
+
   const newVideo = {
-    id: uuidv4(),
     title,
-    description
+    channel: randomName,
+    image: "https://i.imgur.com/x2GmdlK.jpeg",
+    description,
+    views: "0",
+    likes: "0",
+    duration: `${Math.floor(Math.random() * 60)}:${Math.floor(Math.random() * 60)+1}`,
+    video: "https://project-2-api.herokuapp.com/stream",
+    timestamp: Date.now(),
+    comments: [],
+    id: uuidv4(),
   };
 
   vidArr.push(newVideo);
@@ -70,5 +85,6 @@ router.post('/videos', (req, res) => {
 
 })
 
+// DELETE request for /video/:videoId
 
 module.exports = router;

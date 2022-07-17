@@ -6,16 +6,19 @@ const { v4: uuidv4 } = require('uuid');
 const { uniqueNamesGenerator, Config, names, adjectives } = require('unique-names-generator');
 
 
-let imagesArr = [
-  'https://i.imgur.com/4ct4TEr.png',
-  'https://i.imgur.com/vPgMPzw.jpeg',
-  'https://i.imgur.com/CQFK71Q.jpeg',
-  'https://i.imgur.com/B19yFTW.jpeg',
-  'https://i.imgur.com/aR6wyvH.jpeg',
-  'https://i.imgur.com/c0nxtPe.jpeg',
-  'https://i.imgur.com/9cvS5q6.jpeg',
-  'https://i.imgur.com/A8eQsll.jpeg',
-  'https://i.imgur.com/luziRl1.jpeg'
+let imagesArr = [,
+  'http://localhost:8080/images/image9.jpeg',
+  'http://localhost:8080/images/image10.jpeg',
+  'http://localhost:8080/images/image11.jpeg',
+  'http://localhost:8080/images/image12.jpeg',
+  'http://localhost:8080/images/image13.jpeg',
+  'http://localhost:8080/images/image14.jpeg',
+  'http://localhost:8080/images/image15.jpeg',
+  'http://localhost:8080/images/image16.jpeg',
+  'http://localhost:8080/images/image17.jpeg',
+  'http://localhost:8080/images/image18.jpeg',
+  'http://localhost:8080/images/image19.jpeg',
+  'http://localhost:8080/images/image20.jpeg',
 ];
 
 const readVideos = () => {
@@ -60,6 +63,7 @@ router.get('/videos/:videoId', (req, res) => {
     res.status(200).json(requestedVideo);
 })
 
+//creating a random name using uniqueNamesGenerator package
 const randomName = uniqueNamesGenerator({ 
   dictionaries: [adjectives, names],
   separator: ' ',

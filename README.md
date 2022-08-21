@@ -1,5 +1,7 @@
 # BrainFlix API
 
+*NOTE: This app needs the [client](https://github.com/jpatel98/jigar-patel-brainflix) to run in parallel for full functionality.*
+
 ## Overview
 - Start the server with 
 ```

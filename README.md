@@ -1,4 +1,4 @@
-# BrainFlix API
+# BrainFlix Server
 
 *NOTE: This app needs the [client](https://github.com/jpatel98/jigar-patel-brainflix) to run in parallel for full functionality.*
 
